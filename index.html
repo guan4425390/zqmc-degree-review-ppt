@@ -1077,17 +1077,40 @@ function toggleBGM(){
   bgmPlaying = !bgmPlaying;
 }
 
-// 首次用户交互时尝试自动播放
-document.addEventListener('click', function initBGM(){
-  if(!bgmPlaying && bgm){
+// 页面加载后立即尝试全屏 + 自动播放
+(function initAuto(){
+  // 1. 尝试自动全屏
+  function goFullscreen(){
+    var el = document.documentElement;
+    if(el.requestFullscreen){ el.requestFullscreen().catch(function(){}); }
+    else if(el.webkitRequestFullscreen){ el.webkitRequestFullscreen(); }
+    else if(el.msRequestFullscreen){ el.msRequestFullscreen(); }
+  }
+  goFullscreen();
+  // 浏览器可能拦截，用户首次触摸/点击时再试
+  document.addEventListener('click', function(){ goFullscreen(); }, {once: true});
+  document.addEventListener('touchstart', function(){ goFullscreen(); }, {once: true});
+
+  // 2. 自动播放 BGM（立即尝试，被拦截则走点击兜底）
+  if(bgm){
     bgm.volume = 0.25;
-    bgm.play().then(()=>{
+    bgm.play().then(function(){
       bgmPlaying = true;
       bgmBtn.textContent = '♪ 音乐开';
       bgmBtn.style.color = 'rgba(255,255,255,.85)';
-    }).catch(()=>{});
+    }).catch(function(){});
   }
-}, {once: true});
+  // 兜底：首次交互时再试
+  document.addEventListener('click', function tryBGM(){
+    if(!bgmPlaying && bgm){
+      bgm.play().then(function(){
+        bgmPlaying = true;
+        bgmBtn.textContent = '♪ 音乐开';
+        bgmBtn.style.color = 'rgba(255,255,255,.85)';
+      }).catch(function(){});
+    }
+  }, {once: true});
+})();
 
 // =============== 自动轮播（按页面内容量动态调整5~9秒） ===============
 (function(){
