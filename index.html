@@ -3,24 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>肇庆医学院学士学位授予评审 · 学生应知应会</title>
+<title>肇庆医学院 · 药学/中药学专业介绍</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    /* ============ 主题色(默认:🖋 墨水经典) ============
-       切换主题:从 references/themes.md 复制对应的 :root 块
-       整体替换这几行(--ink / --ink-rgb / --paper / --paper-rgb)
-       其他地方散落的 rgba() 都走 var(--ink-rgb) / var(--paper-rgb),无需逐处改 */
     --ink:#2a1e13;
     --ink-rgb:42,30,19;
     --paper:#eedfc7;
     --paper-rgb:238,223,199;
     --paper-tint:#e0d0b6;
     --ink-tint:#3a2a1d;
-
-    /* ============ 字体(跨主题固定) ============ */
     --mono:"IBM Plex Mono",ui-monospace,monospace;
     --serif-en:"Playfair Display","Source Serif 4",Georgia,serif;
     --serif-body-en:"Source Serif 4",Georgia,serif;
@@ -30,7 +24,6 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:100%;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--sans-zh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
-  /* ============ WebGL 双背景 ============ */
   canvas.bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;transition:opacity 1.2s ease}
   canvas#bg-light{opacity:0}
   canvas#bg-dark{opacity:1}
@@ -38,26 +31,20 @@
   body.light-bg canvas#bg-dark{opacity:0}
   body.low-power canvas.bg{display:none!important}
 
-  /* ============ Deck 容器 + 翻页 ============ */
-  /* width: NSLIDES * 100vw，会在 JS 里动态矫正 */
   #deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;flex-wrap:nowrap;transition:transform .9s cubic-bezier(.77,0,.175,1);z-index:10;will-change:transform}
   .slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;padding:6vh 6vw 10vh 6vw;display:flex;flex-direction:column;overflow:hidden}
   .slide.light{color:var(--ink);background:var(--paper)}
   .slide.dark{color:var(--paper);background:var(--ink)}
 
-  /* 默认页：遮罩较厚，保证文字可读 */
   .slide::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;transition:background .7s ease}
   .slide.light::before{background:rgba(var(--paper-rgb),.78);backdrop-filter:blur(3px)}
   .slide.dark::before{background:rgba(var(--ink-rgb),.78);backdrop-filter:blur(3px)}
-  /* Hero 页：遮罩大幅降低，让 WebGL 背景明显透出 */
   .slide.hero.light::before{background:rgba(var(--paper-rgb),.16);backdrop-filter:none}
   .slide.hero.dark::before{background:rgba(var(--ink-rgb),.12);backdrop-filter:none}
-  /* Hero 页顶底微弱渐隐，保证 chrome/foot 区域可读 */
   .slide.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
   .slide.hero.light::after{background:linear-gradient(180deg,rgba(var(--paper-rgb),.28) 0%,rgba(var(--paper-rgb),0) 14%,rgba(var(--paper-rgb),0) 86%,rgba(var(--paper-rgb),.28) 100%)}
   .slide.hero.dark::after{background:linear-gradient(180deg,rgba(var(--ink-rgb),.32) 0%,rgba(var(--ink-rgb),0) 14%,rgba(var(--ink-rgb),0) 86%,rgba(var(--ink-rgb),.32) 100%)}
 
-  /* ============ Magazine chrome：顶部 meta + 底部 foot ============ */
   .chrome{display:flex;justify-content:space-between;align-items:flex-start;font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
   .chrome .left,.chrome .right{display:flex;gap:2.4em;align-items:center}
   .chrome .sep{width:40px;height:1px;background:currentColor;opacity:.4}
@@ -68,11 +55,6 @@
   .rule{width:100%;height:1px;background:currentColor;opacity:.25;margin:3vh 0}
   .rule.v{width:1px;height:100%;margin:0}
 
-  /* ============ 字体规则 ============
-     · 衬线（Noto Serif SC / Playfair）：大标题、重点金句、数字
-     · 非衬线（Noto Sans SC）：正文描述、body、补充说明
-     · 等宽（IBM Plex Mono）：kicker、meta 小标签、foot 右侧
-  */
   .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.6;margin-bottom:2.6vh}
   .display{font-family:var(--serif-en);font-weight:700;font-size:11vw;line-height:.92;letter-spacing:-.025em}
   .display-zh{font-family:var(--serif-zh);font-weight:700;font-size:7.8vw;line-height:1.04;letter-spacing:-.005em}
@@ -89,7 +71,6 @@
   em{font-style:italic;font-family:var(--serif-en)}
   .en{font-family:var(--serif-en);font-style:italic;font-weight:500}
 
-  /* ============ 布局工具 ============ */
   .col{display:flex;flex-direction:column;gap:2.4vh}
   .row{display:flex;align-items:center;gap:3vw}
   .grid-6{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4vw 6vw;flex:1;align-content:center;padding:2vh 0}
@@ -104,54 +85,46 @@
   .bottom-right{position:absolute;right:6vw;bottom:9vh;max-width:50vw;text-align:right}
   .top-right{position:absolute;right:6vw;top:6vh;text-align:right}
 
-  /* ============ Stat（数字矩阵） ============ */
   .stat{display:flex;flex-direction:column;gap:1vh;align-items:flex-start}
   .stat .n{font-family:var(--serif-en);font-weight:800;font-size:8vw;line-height:.88;letter-spacing:-.03em;font-feature-settings:"tnum"}
   .stat .l{font-family:var(--sans-zh);font-size:max(13px,1.05vw);opacity:.7;margin-top:1vh;font-weight:400;line-height:1.5}
   .stat .m{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.5;margin-bottom:.2vh}
 
-  /* ============ Callout（引用框） ============ */
   .callout{padding:3vh 2.4vw;border-left:3px solid currentColor;position:relative;font-family:var(--serif-zh);font-size:max(15px,1.2vw);line-height:1.55;opacity:.92}
   .slide.light .callout{background:rgba(var(--ink-rgb),.05)}
   .slide.dark .callout{background:rgba(var(--paper-rgb),.06)}
   .callout .cite{display:block;margin-top:1.6vh;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
   .callout .q-big{font-family:var(--serif-zh);font-weight:600;font-size:max(17px,1.6vw);line-height:1.42}
 
-  /* ============ Platform（平台卡） ============ */
   .plat{display:flex;flex-direction:column;justify-content:flex-end;padding:2vh 0;border-top:1px solid currentColor;border-color:rgba(127,127,127,.35)}
   .plat .name{font-family:var(--serif-zh);font-weight:700;font-size:1.8vw;margin-bottom:.6vh}
   .plat .nb{font-family:var(--serif-en);font-weight:700;font-size:3.2vw;letter-spacing:-.02em;line-height:1;font-feature-settings:"tnum"}
   .plat .sub{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.55;margin-top:.6vh}
   .plat .fill{font-family:var(--sans-zh);font-weight:300;font-size:2.4vw;opacity:.28;letter-spacing:-.01em;line-height:1}
 
-  /* ============ Rowline（表格行） ============ */
   .rowline{display:grid;grid-template-columns:1fr 2fr 1fr;gap:2vw;padding:2.2vh 0;border-top:1px solid currentColor;align-items:center;border-color:rgba(127,127,127,.25)}
   .rowline:last-child{border-bottom:1px solid currentColor;border-color:rgba(127,127,127,.25)}
   .rowline .k{font-family:var(--serif-zh);font-weight:700;font-size:1.7vw}
   .rowline .v{font-family:var(--sans-zh);font-weight:400;font-size:max(14px,1.2vw);opacity:.85;line-height:1.55}
   .rowline .m{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;justify-self:end}
 
-  /* ============ Pillar（支柱卡片） ============ */
   .pillar{display:flex;flex-direction:column;gap:1.8vh}
   .pillar .ic{font-family:var(--serif-en);font-style:italic;font-size:2.6vw;opacity:.45;font-weight:400}
   .pillar .ic svg{width:2.8vw;height:2.8vw;stroke-width:1.2;opacity:.7}
   .pillar .t{font-family:var(--serif-zh);font-weight:700;font-size:2.4vw;line-height:1.1}
   .pillar .d{font-family:var(--sans-zh);font-weight:400;font-size:max(14px,1.1vw);opacity:.76;line-height:1.6}
 
-  /* ============ Signature / Highlight ============ */
   .sign{font-family:var(--serif-en);font-style:italic;font-weight:500;font-size:2vw;opacity:.7}
   .hi{position:relative;display:inline}
   .slide.dark .hi::after{content:"";position:absolute;left:-.1em;right:-.1em;bottom:-.05em;height:.28em;background:rgba(var(--paper-rgb),.15);z-index:-1}
   .slide.light .hi::after{content:"";position:absolute;left:-.1em;right:-.1em;bottom:-.05em;height:.28em;background:rgba(var(--ink-rgb),.08);z-index:-1}
 
-  /* ============ Icons（Lucide via CDN） ============ */
   .ico{width:1em;height:1em;display:inline-block;vertical-align:-.12em;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
   .ico-lg,.ico-md,.ico-sm{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
   .ico-lg{width:2.6vw;height:2.6vw;stroke-width:1.2;display:inline-block}
   .ico-md{width:1.8vw;height:1.8vw;stroke-width:1.3;display:inline-block;vertical-align:-.4em}
   .ico-sm{width:1.1vw;height:1.1vw;stroke-width:1.4;display:inline-block;vertical-align:-.15em;opacity:.7}
 
-  /* ============ 图片占位（虚线框，提示设计师位置） ============ */
   .img-slot{border:1.5px dashed rgba(127,127,127,.4);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1vh;padding:2vh 2vw;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;position:relative;aspect-ratio:16/9;width:100%;max-height:56vh;margin-inline:auto;box-sizing:border-box}
   .img-slot::before{content:"";position:absolute;inset:8px;border:1px solid currentColor;opacity:.2}
   .img-slot .plus{font-size:2vw;font-weight:300;opacity:.5;letter-spacing:0}
@@ -160,10 +133,6 @@
   .img-slot.r-3x2{aspect-ratio:3/2}
   .img-slot.r-1x1{aspect-ratio:1/1}
 
-  /* ============ 图片实填框（关键：固定高度 + 只裁底部） ============
-     重要约束：高度用内联 height:Nvh 精确控制，不要用 aspect-ratio（会撑破布局）
-     object-position:top center 保证严禁裁剪顶部和左右，只裁剪底部
-  */
   .frame-img{overflow:hidden;position:relative;background:rgba(0,0,0,.04);box-sizing:border-box;width:100%;border-radius:4px}
   .slide.dark .frame-img{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
   .frame-img > img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
@@ -186,7 +155,6 @@
   figure.tile{display:flex;flex-direction:column;margin:0;min-width:0}
   figure.tile > .frame-img{flex:0 0 auto}
 
-  /* ============ 导航 ============ */
   #nav{position:fixed;left:50%;bottom:2.6vh;transform:translateX(-50%);z-index:30;display:flex;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
   #nav .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s ease;border:0;padding:0}
   #nav .dot:hover{background:rgba(255,255,255,.5);transform:scale(1.15)}
@@ -198,22 +166,13 @@
   body.low-power #hint{opacity:.72;color:var(--paper);mix-blend-mode:normal}
   body.light-bg.low-power #hint{color:var(--ink)}
 
-  /* ============================================================
-     ============ LAYOUTS API · 面向 agent 的类（v2）============
-     所有 layouts.md 中的骨架都基于下面这套命名。
-     如果你在 layouts.md 里看到某个类，它必须在下面有定义。
-     ============================================================ */
-
-  /* ---------- .frame：每页主内容容器 ---------- */
   .frame{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-  /* 当 .frame 同时加了 grid 类时，grid 的 display:grid 覆盖 flex */
   .frame.grid-2-7-5,
   .frame.grid-2-6-6,
   .frame.grid-2-8-4,
   .frame.grid-3-3,
   .frame.grid-6{display:grid}
 
-  /* ---------- 标题层级（API 名称，衬线为主） ---------- */
   .h-hero{
     font-family:var(--serif-zh);
     font-weight:900;
@@ -242,10 +201,8 @@
     font-size:2.3vw;
     line-height:1.3;
   }
-  /* 英文标题专用（Playfair 衬线） */
   .h-hero-en,.h-xl-en{font-family:var(--serif-en);letter-spacing:-.025em}
 
-  /* ---------- lead 引语 ---------- */
   .lead{
     font-family:var(--serif-zh);
     font-weight:400;
@@ -254,7 +211,6 @@
     opacity:.86;
   }
 
-  /* ---------- meta-row 底部元数据 ---------- */
   .meta-row{
     display:flex;
     gap:1.2em;
@@ -267,7 +223,6 @@
     opacity:.6;
   }
 
-  /* ---------- stat-card（数据大字报用） ---------- */
   .stat-card{
     display:flex;
     flex-direction:column;
@@ -309,12 +264,9 @@
     opacity:.72;
     margin-top:.6vh;
   }
-  /* 当 stat-card 用于 grid-4（2x2），数字适度放大；若页面有标题+引文在上方，可内联 style 覆盖为更小值 */
   .grid-4 .stat-card .stat-nb{font-size:5vw}
-  /* 当只有 3 个，字也可以稍大 */
   .grid-3 .stat-card .stat-nb{font-size:6.8vw}
 
-  /* ---------- pipeline（流水线） ---------- */
   .pipeline-section{
     margin-top:4.4vh;
     padding-top:2.8vh;
@@ -371,8 +323,6 @@
     opacity:.72;
   }
 
-  /* ---------- 网格（layouts.md 所用） ---------- */
-  /* 这些类独立挂到任何容器上都能生效，不依赖 .frame 复合选择器 */
   .grid-2-7-5{display:grid;grid-template-columns:7fr 5fr;gap:3vw 4vh;align-items:start}
   .grid-2-6-6{display:grid;grid-template-columns:1fr 1fr;gap:3vw 4vh;align-items:start}
   .grid-2-8-4{display:grid;grid-template-columns:8fr 4fr;gap:3vw 4vh;align-items:start}
@@ -382,10 +332,7 @@
     grid-auto-rows:minmax(0,1fr);
     gap:2.4vh 2vw;
   }
-  /* grid-6 已在旧样式里定义为 3x2，这里仅补 align */
 
-  /* ---------- 图片 frame-img（layouts.md 主命名） ---------- */
-  /* 在旧样式里已定义，这里补 img-cap 命名别名与增强 */
   figure.frame-img{margin:0;display:flex;flex-direction:column;min-width:0}
   .img-cap{
     display:block;
@@ -396,7 +343,6 @@
     text-transform:uppercase;
     opacity:.6;
   }
-  /* callout src 命名别名 */
   .callout-src{
     display:block;
     margin-top:1.6vh;
@@ -407,19 +353,9 @@
     opacity:.6;
   }
 
-  /* ---------- chrome & foot 补位（layouts.md 简单写法） ---------- */
   .chrome{font-family:var(--mono);font-size:max(11px,.78vw);letter-spacing:.2em;text-transform:uppercase;opacity:.62}
   .foot{font-family:var(--mono);font-size:max(11px,.78vw);letter-spacing:.18em;text-transform:uppercase;opacity:.5}
 
-  /* ============ 动效系统(Motion One 驱动) ============
-     所有 [data-anim] 元素默认隐藏,进入页面时由 JS 逐个揭示。
-     - cascade(默认):按 DOM 顺序 stagger 120ms 淡入 + y:16→0
-     - hero(hero 页自动):慢一点的 stagger 180ms
-     - quote(含 [data-anim="line"]):逐行 600ms 淡入
-     - directional(含 [data-anim="left|right"]):左→分隔线→右
-     - pipeline(data-animate="pipeline"):Space/→ 手动推进
-     Motion One 没加载成功时(CDN 断 + 本地丢),所有 [data-anim] 会兜底显示。
-  */
   [data-anim]{opacity:1}
   body.motion-ready [data-anim]{opacity:0}
   body.motion-ready [data-anim="left"]{transform:translateX(-24px)}
@@ -433,7 +369,13 @@
   body.low-power.motion-ready [data-anim],
   body.low-power [data-anim]{opacity:1!important;transform:none!important}
 
-  /* ---------- 响应式降级 ---------- */
+  /* 课程表格样式 */
+  .course-table{width:100%;border-collapse:collapse;font-family:var(--sans-zh);font-size:max(12px,.92vw)}
+  .course-table th,.course-table td{border:1px solid currentColor;border-color:rgba(127,127,127,.35);padding:1vh 1vw;text-align:center}
+  .course-table th{font-family:var(--serif-zh);font-weight:600;opacity:.9;background:rgba(127,127,127,.08)}
+  .course-table td{opacity:.82}
+  .course-table .hl{font-weight:700;color:#c0392b}
+
   @media (max-width:900px){
     .display{font-size:16vw}
     .display-zh{font-size:12vw}
@@ -479,14 +421,6 @@
 
 <div id="deck">
 
-<!-- ============================================================
-     SLIDES 插入区 · 在此处填充所有 <section class="slide ..."> 页面
-     每页模板参考 references/page-patterns.md
-     页面组件参考 references/components.md
-     ============================================================ -->
-
-
-
 <!-- ============ 第1页：封面 ============ -->
 <section class="slide hero dark">
   <div class="chrome">
@@ -494,308 +428,415 @@
     <div>Vol.01</div>
   </div>
   <div class="frame" style="display:grid; gap:4vh; align-content:center; min-height:80vh">
-    <div class="kicker" data-anim>学位授予评审 · 学生应知应会</div>
-    <h1 class="h-hero" data-anim>学士学位</h1>
-    <h2 class="h-sub" data-anim>授予评审</h2>
+    <div class="kicker" data-anim>药学/中药学 · 专业介绍</div>
+    <h1 class="h-hero" data-anim>肇庆医学院</h1>
+    <h2 class="h-sub" data-anim>药学 · 中药学</h2>
     <p class="lead" style="max-width:60vw" data-anim>
-      评审结果直接关系到每一位同学的学位证，请务必认真阅读、全力配合。
+      大医精诚，知行合一 · 面向基层培养高素质应用型医药卫生人才
     </p>
     <div class="meta-row" data-anim>
-      <span>肇庆医学院肇庆医学院药学院</span><span>·</span><span>2026年6月</span>
+      <span>肇庆医学院药学院</span><span>·</span><span>2026年6月</span>
     </div>
   </div>
   <div class="foot">
-    <div>一场关于学位 · 关乎每一位同学</div>
+    <div>药学/中药学专业介绍 · 学生应知应会</div>
     <div>— 2026 —</div>
   </div>
 </section>
 
-<!-- ============ 第2页：时间与重要性（数据大字报） ============ -->
+<!-- ============ 第2页：学校基本信息 ============ -->
 <section class="slide light">
   <div class="chrome">
-    <div>评审安排 · 时间与意义</div>
-    <div>01 · 02 / 08</div>
+    <div>学校概况 · 历史与定位</div>
+    <div>01 · 02 / 09</div>
   </div>
-  <div class="frame" style="padding-top:5vh">
-    <div class="kicker" data-anim>时间节点 · 请牢记</div>
-    <h2 class="h-xl" data-anim>评审倒计时</h2>
-    <p class="lead" style="margin-bottom:4vh" data-anim>2026年6月<b style="font-weight:700; color:#c0392b">24、25、26日</b>，为期三天。<b style="font-weight:700; color:#c0392b">6月25日</b>为全体学生<b style="font-weight:700">核心检查日</b>，全天全员全力配合。</p>
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>肇庆医学院</div>
+    <h2 class="h-xl" data-anim style="font-size:5.2vw">学校基本信息</h2>
 
-    <div class="grid-6" style="margin-top:4vh">
-      <div class="stat-card" data-anim>
-        <div class="stat-label">评审天数</div>
-        <div class="stat-nb">3 <span class="stat-unit">天</span></div>
-        <div class="stat-note">6月24-26日</div>
+    <div class="grid-2-6-6" style="margin-top:3vh">
+      <!-- 左列 -->
+      <div style="display:flex; flex-direction:column; gap:2vh">
+        <div class="kicker" data-anim>历史沿革</div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">1958年</div>
+          <div class="stat-note">中山医学院肇庆分院创建</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">2004年</div>
+          <div class="stat-note">升格为肇庆医学高等专科学校</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">2024年</div>
+          <div class="stat-note" style="font-weight:700; color:#c0392b">获批设立本科院校——肇庆医学院</div>
+        </div>
+        <div class="stat-card" data-anim style="margin-top:1vh">
+          <div class="stat-label" style="opacity:.8">68载砥砺奋进</div>
+          <div class="stat-note">从卫生学校发展为全日制本科医学院校</div>
+        </div>
       </div>
-      <div class="stat-card" data-anim style="border-top:3px solid #c0392b; border-color:#c0392b">
-        <div class="stat-label" style="font-weight:700; color:#c0392b; opacity:1">★ 核心检查日</div>
-        <div class="stat-nb" style="font-weight:900;">25 <span class="stat-unit" style="color:#c0392b; font-weight:700">日</span></div>
-        <div class="stat-note" style="font-weight:600; opacity:.9">全体学生全天全力配合</div>
+      <!-- 右列 -->
+      <div style="display:flex; flex-direction:column; gap:2vh">
+        <div class="kicker" data-anim>校训与办学定位</div>
+        <div class="callout" data-anim>
+          <span class="q-big" style="font-size:max(15px,1.6vw)">校训：<b>大医精诚，知行合一</b></span>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">办学定位</div>
+          <div class="stat-note">面向基层培养"<b>下得去、留得住、用得好</b>"的高素质应用型医药卫生人才</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">校区规模</div>
+          <div class="stat-note">新区、鼎湖、端州 <b>3个校区</b>，总面积 <b>1100亩</b>（新区校区800亩）</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">专业设置</div>
+          <div class="stat-note"><b>11个本科专业</b>（临床医学、药学、中药学等）<br><b>18个专科专业</b></div>
+        </div>
       </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:3vh">
       <div class="stat-card" data-anim>
-        <div class="stat-label">本科专业</div>
-        <div class="stat-nb">11</div>
-        <div class="stat-note">已开设本科专业数量</div>
+        <div class="stat-label">在校学生</div>
+        <div class="stat-nb" style="font-size:3.8vw">15000<span class="stat-unit">人</span></div>
+        <div class="stat-note">其中本科生约2500人</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">附属医院</div>
-        <div class="stat-nb">3 <span class="stat-unit">家</span></div>
+        <div class="stat-nb" style="font-size:3.8vw">3 <span class="stat-unit">家</span></div>
         <div class="stat-note">直属附属医院</div>
       </div>
       <div class="stat-card" data-anim>
-        <div class="stat-label">专任教师</div>
-        <div class="stat-nb">869 <span class="stat-unit">人</span></div>
-        <div class="stat-note">生师比 8.94:1</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label">就业率</div>
-        <div class="stat-nb">95<span class="stat-unit">%+</span></div>
-        <div class="stat-note">基层就业占比84%</div>
+        <div class="stat-label">实习基地</div>
+        <div class="stat-nb" style="font-size:3.8vw">90<span class="stat-unit">+</span></div>
+        <div class="stat-note">校外实习实践基地</div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>评审不通过 → 全校学生无法正常获得学位证</div>
-    <div>Page 02 · 时间与意义</div>
+    <div>大医精诚 · 知行合一</div>
+    <div>Page 02 · 学校概况</div>
   </div>
 </section>
 
-<!-- ============ 第3页：线下行为规范（含着装） ============ -->
+<!-- ============ 第3页：药学院简介 ============ -->
 <section class="slide dark">
   <div class="chrome">
-    <div>行为规范 · 6月25日重点落实</div>
-    <div>02 · 03 / 08</div>
+    <div>药学院 · 专业设置与发展</div>
+    <div>02 · 03 / 09</div>
   </div>
   <div class="frame" style="padding-top:4vh">
-    <div class="kicker" data-anim style="color:#c0392b; opacity:.9">★ 6月25日 · 核心检查日 · 重点落实</div>
-    <h2 class="h-xl" data-anim style="margin-bottom:4vh; font-size:5.5vw">线下三项硬规范</h2>
-    <div class="grid-3" style="margin-top:2vh">
-      <!-- 课堂 -->
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="book-open" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>课堂纪律</div>
-        <div class="stat-nb" style="font-size:3.2vw">不迟到<span style="font-size:.6em;opacity:.6">·不早退</span></div>
-        <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.6">不旷课，保证全员出勤。课堂是评审专家重点关注区域。</div>
+    <div class="kicker" data-anim>药学院</div>
+    <h2 class="h-xl" data-anim style="font-size:5vw; margin-bottom:1vh">药学院概况</h2>
+
+    <div class="grid-2-7-5" style="margin-top:2vh">
+      <div style="display:flex; flex-direction:column; gap:2vh">
+        <div class="kicker" data-anim>学院发展历程</div>
+        <div class="pipeline" data-cols="4" style="grid-template-columns:repeat(4,1fr)">
+          <div class="step" data-anim>
+            <div class="step-nb">1989</div>
+            <div class="step-desc">创办中专中药制剂专业</div>
+          </div>
+          <div class="step" data-anim>
+            <div class="step-nb">2004</div>
+            <div class="step-desc">药学院成立，专科药学招生</div>
+          </div>
+          <div class="step" data-anim>
+            <div class="step-nb">2024</div>
+            <div class="step-desc">获批药学本科专业</div>
+          </div>
+          <div class="step" data-anim>
+            <div class="step-nb">2025</div>
+            <div class="step-desc">新增中药学本科专业</div>
+          </div>
+        </div>
+        <div class="stat-card" data-anim style="margin-top:1vh">
+          <div class="stat-label">办学定位</div>
+          <div class="stat-note">立足肇庆、辐射广东、面向基层、服务社会，培养从事药品生产、经营和使用的高素质应用型药学人才。</div>
+        </div>
       </div>
-      <!-- 宿舍 -->
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="home" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>宿舍内务</div>
-        <div class="stat-nb" style="font-size:3.2vw">全面<span style="font-size:.6em;opacity:.6">清洁</span></div>
-        <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.6">做好宿舍全面卫生整理，保持内务整洁规范。宿舍是专家实地走访必查环节。</div>
+      <div style="display:flex; flex-direction:column; gap:1.5vh">
+        <div class="stat-card" data-anim>
+          <div class="stat-label">本科专业</div>
+          <div class="stat-nb" style="font-size:3.5vw">3 <span class="stat-unit">个</span></div>
+          <div class="stat-note">药学、中药学、药物制剂</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">毕业生规模</div>
+          <div class="stat-nb" style="font-size:3.5vw">2000<span class="stat-unit">+</span></div>
+          <div class="stat-note">已输送毕业生2000多人</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">近两年就业率</div>
+          <div class="stat-nb" style="font-size:3.5vw">90<span class="stat-unit">%</span></div>
+          <div class="stat-note">专业对口率86.49%</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label">职业技能证书</div>
+          <div class="stat-nb" style="font-size:3.5vw">95<span class="stat-unit">%</span></div>
+          <div class="stat-note">获高级职业技能证书比例</div>
+        </div>
       </div>
-      <!-- 着装 -->
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="shirt" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>仪容仪表</div>
-        <div class="stat-nb" style="font-size:3.2vw">规范<span style="font-size:.6em;opacity:.6">得体</span></div>
-        <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.6">穿着整洁大方，<b style="color:#c0392b">严禁穿拖鞋、白大褂</b>进入教学区或参加座谈。展现医学生良好精神风貌。</div>
-      </div>
+    </div>
+
+    <div class="callout" data-anim style="margin-top:2vh">
+      <span class="q-big" style="font-size:max(13px,1.3vw)">院内实训中心：药学服务实训中心（模拟药房）、药剂实训中心（模拟药物制剂车间）、药品检验中心、药物分析实训室、天然药物化学实训室等。校外实习基地 <b>79个</b>，覆盖珠三角及粤东西北地区医院与药企。</span>
     </div>
   </div>
   <div class="foot">
-    <div>6月25日 · 全天 · 全员 · 全力配合</div>
-    <div>Page 03 · 线下行为规范</div>
+    <div>药学院 · 3个本科专业 · 模拟药房 + 模拟制剂车间</div>
+    <div>Page 03 · 药学院概况</div>
   </div>
 </section>
 
-<!-- ============ 第4页：网络与拍摄管理 ============ -->
+<!-- ============ 第4页：药学专业课程体系 ============ -->
 <section class="slide light">
   <div class="chrome">
-    <div>网络 · 拍摄 · 硬性管理</div>
-    <div>03 · 04 / 08</div>
+    <div>药学专业 · 课程体系与学分</div>
+    <div>03 · 04 / 09</div>
   </div>
-  <div class="frame" style="padding-top:5vh; display:flex; flex-direction:column; gap:5vh">
-    <div>
-      <div class="kicker" data-anim>严禁行为 · 后果严重</div>
-      <h2 class="h-xl" data-anim>网络言行"四不"原则</h2>
-    </div>
+  <div class="frame" style="padding-top:3vh">
+    <div class="kicker" data-anim>药学专业 · Pharmacy</div>
+    <h2 class="h-xl" data-anim style="font-size:4.8vw; margin-bottom:2vh">课程体系与学分构成</h2>
+    <p class="lead" style="font-size:1.2vw; margin-bottom:1vh" data-anim>理念：<b>"善研善成，懂医精药"</b>——研究药物与机体相互作用的科学，涵盖药物来源、设计、合成、分析、生产、经营与使用全链条。</p>
 
-    <div class="grid-4" style="margin-top:2vh">
-      <div class="stat-card" data-anim>
-        <div class="stat-label"><i data-lucide="message-circle-x" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不发</div>
-        <div class="stat-nb" style="font-size:3.2vw">不发</div>
-        <div class="stat-note">不在任何网络平台发布抹黑学校的视频、言论</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label"><i data-lucide="share-2" class="ico-md" style="margin-right:4px;vertical-align:middle;transform:rotate(180deg)"></i>不传</div>
-        <div class="stat-nb" style="font-size:3.2vw">不传</div>
-        <div class="stat-note">不传播不利于学校的舆情信息</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label"><i data-lucide="camera-off" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不拍</div>
-        <div class="stat-nb" style="font-size:3.2vw">不拍</div>
-        <div class="stat-note" style="color:#c0392b; font-weight:600">评审期间禁止随意拍照、录像，不得拍摄评审专家及相关评审场景</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label"><i data-lucide="ban" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不碰</div>
-        <div class="stat-nb" style="font-size:3.2vw">不碰</div>
-        <div class="stat-note">不触碰任何有损学校声誉的言行红线</div>
-      </div>
-    </div>
+    <table class="course-table" data-anim>
+      <thead>
+        <tr><th>课程类别</th><th>总学时</th><th>理论</th><th>实验</th><th>学分</th><th>占比(%)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>通识课程</td><td>982</td><td>596</td><td>386</td><td>45</td><td>25.42</td></tr>
+        <tr><td>专业基础课</td><td>822</td><td>598</td><td>224</td><td>40.5</td><td>22.88</td></tr>
+        <tr><td>专业课程</td><td>874</td><td>522</td><td>352</td><td>42</td><td>23.73</td></tr>
+        <tr><td>专业限选课</td><td>368</td><td>266</td><td>102</td><td>19.5</td><td>11.02</td></tr>
+        <tr><td>公共选修课</td><td>180</td><td>126</td><td>54</td><td>10</td><td>5.65</td></tr>
+        <tr><td>毕业实习/毕业论文</td><td>—</td><td>—</td><td>—</td><td>20</td><td>11.30</td></tr>
+        <tr style="font-weight:700; background:rgba(127,127,127,.12)"><td>合计</td><td>3226</td><td>2108</td><td>1118</td><td class="hl">177</td><td>100</td></tr>
+      </tbody>
+    </table>
 
-    <div class="callout" data-anim style="margin-top:2vh; border-left-color:#c0392b">
-      <span class="q-big" style="color:#c0392b">以上行为一经查实将严肃处理，后果严重。请全体同学自觉维护学校形象，做肇医最好的代言人。</span>
+    <div class="grid-2-6-6" style="margin-top:2vh">
+      <div>
+        <div class="kicker" data-anim style="font-size:max(9px,.7vw)">核心课程</div>
+        <p data-anim style="font-family:var(--sans-zh); font-size:max(12px,.95vw); line-height:1.7; opacity:.85">药理学 · 药剂学 · 药物化学 · 药物分析学 · 天然药物化学 · 生物药剂学与药代动力学 · 药事管理学</p>
+      </div>
+      <div>
+        <div class="kicker" data-anim style="font-size:max(9px,.7vw)">专业基础</div>
+        <p data-anim style="font-family:var(--sans-zh); font-size:max(12px,.95vw); line-height:1.7; opacity:.85">无机化学 · 有机化学 · 分析化学 · 物理化学 · 仪器分析 · 组织胚胎与解剖学 · 病原生物学与免疫学</p>
+      </div>
     </div>
   </div>
   <div class="foot">
-    <div>禁止拍照 · 禁止不当言论 · 违规必究</div>
-    <div>Page 04 · 网络与拍摄管理</div>
+    <div>药学 · 总学分177 · 善研善成 懂医精药</div>
+    <div>Page 04 · 药学课程体系</div>
   </div>
 </section>
 
-<!-- ============ 第5页：专家问询应对礼仪 ============ -->
+<!-- ============ 第5页：药学专业各学年安排 ============ -->
 <section class="slide dark">
   <div class="chrome">
-    <div>专家问询 · 应对礼仪</div>
-    <div>04 · 05 / 08</div>
+    <div>药学专业 · 各学年课程安排</div>
+    <div>04 · 05 / 09</div>
   </div>
-  <div class="frame" style="padding-top:4vh">
-    <div class="kicker" data-anim style="color:var(--paper); opacity:.9">★ 若评审专家随机提问</div>
-    <h2 class="h-xl" data-anim style="margin-bottom:4vh; font-size:5vw">应对全流程</h2>
+  <div class="frame" style="padding-top:3vh">
+    <div class="kicker" data-anim>药学专业 · 实践教学体系</div>
+    <h2 class="h-xl" data-anim style="font-size:4.8vw; margin-bottom:2vh">四学年课程安排</h2>
 
-    <!-- 四步法 -->
     <div class="pipeline" data-cols="4" style="margin-top:2vh">
       <div class="step" data-anim>
-        <div class="step-nb">STEP 01</div>
-        <div class="step-title">礼貌问候</div>
-        <div class="step-desc" style="font-size:max(12px,.95vw); line-height:1.45">"<b style="color:var(--paper)">专家您好，我是××专业学生</b>"，起身问好，大方自然地介绍自己。</div>
+        <div class="step-nb">第一学年</div>
+        <div class="step-title" style="font-size:1.5vw">基础入门</div>
+        <div class="step-desc">无机化学、有机化学I、分析化学、组织胚胎与解剖学等</div>
       </div>
       <div class="step" data-anim>
-        <div class="step-nb">STEP 02</div>
-        <div class="step-title">专注倾听</div>
-        <div class="step-desc" style="font-size:max(12px,.95vw); line-height:1.45"><b style="color:var(--paper)">眼睛看着专家</b>，不要左顾右盼、低头或看手机，保持自然交流姿态。</div>
+        <div class="step-nb">第二学年</div>
+        <div class="step-title" style="font-size:1.5vw">深化基础</div>
+        <div class="step-desc">有机化学II、物理化学、病原生物学与免疫学、机能实验学、仪器分析等</div>
       </div>
       <div class="step" data-anim>
-        <div class="step-nb">STEP 03</div>
-        <div class="step-title">自信作答</div>
-        <div class="step-desc" style="font-size:max(12px,.95vw); line-height:1.45"><b style="color:var(--paper)">大胆自信</b>，知无不言。回答内容要基于应知应会材料，不编造不猜测。</div>
+        <div class="step-nb">第三学年</div>
+        <div class="step-title" style="font-size:1.5vw">专业核心</div>
+        <div class="step-desc">天然药物化学、药用植物学、药物化学、药理学、药剂学、药物分析、临床药物治疗学</div>
       </div>
       <div class="step" data-anim>
-        <div class="step-nb">STEP 04</div>
-        <div class="step-title">坦诚应对</div>
-        <div class="step-desc" style="font-size:max(12px,.95vw); line-height:1.45">不会的，委婉表达：<br><b style="color:var(--paper)">"这个问题我了解不够全面，会后我加强这方面的学习。"</b></div>
+        <div class="step-nb">第四学年</div>
+        <div class="step-title" style="font-size:1.5vw">综合实践</div>
+        <div class="step-desc">生物药剂与药代动力学、波谱解析、生物技术制药、药学文献检索与论文写作、药学综合实训、毕业实习、毕业论文</div>
       </div>
     </div>
 
-    <!-- 核心四原则 -->
-    <div class="grid-4" style="margin-top:4vh">
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="pencil-off" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不编造</div>
-        <div class="stat-nb" style="font-size:3vw">不编</div>
-        <div class="stat-note" style="font-size:max(12px,.95vw)">不会作答绝不胡编乱答</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="alert-triangle" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不乱答</div>
-        <div class="stat-nb" style="font-size:3vw">不乱</div>
-        <div class="stat-note" style="font-size:max(12px,.95vw)">不确定的不随意作答</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="smile" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>要礼貌</div>
-        <div class="stat-nb" style="font-size:3vw">微笑</div>
-        <div class="stat-note" style="font-size:max(12px,.95vw)"><b style="color:var(--paper)">保持微笑</b>，眼里有光</div>
-      </div>
-      <div class="stat-card" data-anim>
-        <div class="stat-label" style="font-size:max(11px,.9vw)"><i data-lucide="eye" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>要自信</div>
-        <div class="stat-nb" style="font-size:3vw">自信</div>
-        <div class="stat-note" style="font-size:max(12px,.95vw)">大胆对视，从容应对</div>
-      </div>
-    </div>
-
-    <div class="callout" data-anim style="margin-top:2.5vh">
-      <span class="q-big">坦诚是最好的应答——不懂不丢人，乱答才坏事。</span>
+    <div class="callout" data-anim style="margin-top:3vh">
+      <span class="q-big" style="font-size:max(13px,1.3vw)">就业方向：医院药房/药学部/静脉药物配置中心 · 药品经营企业采购验收销售质量管理 · 药品生产检验质量管理 · 食品化妆品检验行业</span>
     </div>
   </div>
   <div class="foot">
-    <div>面带微笑 · 眼睛看专家 · 自信 · 坦诚</div>
-    <div>Page 05 · 专家问询</div>
+    <div>药学 · 四学年 · 校内实训 + 校外实习</div>
+    <div>Page 05 · 药学课程安排</div>
   </div>
 </section>
 
-<!-- ============ 第6页：座谈会要点 + 应知应会 ============ -->
-<section class="slide dark">
-  <div class="chrome">
-    <div>学生座谈 · 应知应会 · 熟记于心</div>
-    <div>05 · 06 / 08</div>
-  </div>
-  <div class="frame" style="padding-top:4vh">
-    <div class="kicker" data-anim style="color:var(--paper); opacity:.9">★ 学生代表座谈会 · 务必加强辅导</div>
-    <h2 class="h-xl" data-anim style="margin-bottom:3vh; font-size:5vw">应知应会核心内容</h2>
-
-    <div class="grid-2-6-6" style="margin-top:1vh">
-      <!-- 左列 -->
-      <div style="display:flex; flex-direction:column; gap:2.2vh">
-        <div class="kicker" data-anim>座谈常见问题方向</div>
-        <div class="stat-card" data-anim>
-          <div class="stat-label"><i data-lucide="book-open" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>专业培养</div>
-          <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.5">了解本专业培养目标、课程体系、实习安排</div>
-        </div>
-        <div class="stat-card" data-anim>
-          <div class="stat-label"><i data-lucide="flask-conical" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>实验实训</div>
-          <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.5">清楚实验条件、实训基地、技能培养环节</div>
-        </div>
-        <div class="stat-card" data-anim>
-          <div class="stat-label"><i data-lucide="graduation-cap" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>学生制度</div>
-          <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.5">学籍管理、奖惩制度、日常管理规范</div>
-        </div>
-        <div class="stat-card" data-anim>
-          <div class="stat-label"><i data-lucide="hand-heart" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>学生资助</div>
-          <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.5">奖助学金、助学贷款、勤工助学等政策</div>
-        </div>
-      </div>
-
-      <!-- 右列 -->
-      <div style="display:flex; flex-direction:column; gap:2.2vh">
-        <div class="kicker" data-anim>重点学习资料</div>
-        <div class="callout" data-anim style="padding:2vh 2vw">
-          <span class="q-big" style="font-size:max(14px,1.5vw); line-height:1.4"><b>《参考材料》第35-37页</b>——学生代表座谈会注意项，务必逐条学习、重点掌握。</span>
-        </div>
-        <div class="stat-card" data-anim>
-          <div class="stat-label">学校基本数据</div>
-          <div class="stat-note" style="font-size:max(13px,1.05vw); line-height:1.5">1958年建校 · 2024年升格本科 · 就业率<b>超95%</b> · 基层就业占比<b>84%</b> · 广东省"文明单位""文明校园"</div>
-        </div>
-        <div class="callout" data-anim style="border-left-color:var(--paper); padding:2vh 2vw; margin-top:1vh">
-          <span class="q-big" style="font-size:max(13px,1.25vw)">不会回答时，坦诚说明："<b style="color:var(--paper)">这个问题我了解不够全面，会后我加强这方面的学习。</b>"</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="foot">
-    <div>熟记参考材料35-37页 · 坦诚自信应答</div>
-    <div>Page 06 · 座谈要点 + 应知应会</div>
-  </div>
-</section>
-<!-- ============ 第7页：强调学位证（问题页/幕封） ============ -->
-<section class="slide hero dark">
-  <div class="chrome">
-    <div>最后提醒 · 最重要的</div>
-    <div>06 · 07 / 08</div>
-  </div>
-  <div class="frame" style="display:grid; gap:6vh; align-content:center; min-height:80vh">
-    <div class="kicker" data-anim>请记住</div>
-    <h1 class="h-hero" style="font-size:7vw; line-height:1.15">
-      <span data-anim style="display:block">评审不通过，</span>
-      <span data-anim style="display:block">全校同学都无法</span>
-      <span data-anim style="display:block">正常获得学位证。</span>
-    </h1>
-    <p class="lead" style="max-width:55vw" data-anim>
-      这不是一次普通的检查，这直接关系到你的毕业证和学位证。
-    </p>
-  </div>
-  <div class="foot">
-    <div>Page 07 · 核心提醒</div>
-    <div>— · —</div>
-  </div>
-</section>
-
-<!-- ============ 第8页：结尾 ============ -->
+<!-- ============ 第6页：中药学专业课程体系 ============ -->
 <section class="slide light">
   <div class="chrome">
-    <div>感谢配合 · 共同努力</div>
-    <div>07 · 08 / 08</div>
+    <div>中药学专业 · 课程体系与学分</div>
+    <div>05 · 06 / 09</div>
+  </div>
+  <div class="frame" style="padding-top:3vh">
+    <div class="kicker" data-anim>中药学专业 · Chinese Materia Medica</div>
+    <h2 class="h-xl" data-anim style="font-size:4.8vw; margin-bottom:2vh">课程体系与学分构成</h2>
+    <p class="lead" style="font-size:1.2vw; margin-bottom:1vh" data-anim>以中医理论为指导，结合<b>四气五味、升降浮沉</b>等独特概念，强调整体调理与辨证施治。融合现代色谱/质谱分析技术与中药智能制造。</p>
+
+    <table class="course-table" data-anim>
+      <thead>
+        <tr><th>课程类别</th><th>总学时</th><th>理论</th><th>实验</th><th>学分</th><th>占比(%)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>通识课程</td><td>982</td><td>596</td><td>386</td><td>45</td><td>24.93</td></tr>
+        <tr><td>专业基础课</td><td>840</td><td>616</td><td>224</td><td>41.5</td><td>22.99</td></tr>
+        <tr><td>专业课程</td><td>922</td><td>540</td><td>352</td><td>41.5</td><td>22.99</td></tr>
+        <tr><td>专业限选课</td><td>448</td><td>294</td><td>154</td><td>22.5</td><td>12.47</td></tr>
+        <tr><td>公共选修课</td><td>180</td><td>126</td><td>54</td><td>10</td><td>5.54</td></tr>
+        <tr><td>毕业实习/毕业论文</td><td>—</td><td>—</td><td>—</td><td>20</td><td>11.08</td></tr>
+        <tr style="font-weight:700; background:rgba(127,127,127,.12)"><td>合计</td><td>3372</td><td>2172</td><td>1200</td><td class="hl">180.5</td><td>100</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2-6-6" style="margin-top:2vh">
+      <div>
+        <div class="kicker" data-anim style="font-size:max(9px,.7vw)">核心课程</div>
+        <p data-anim style="font-family:var(--sans-zh); font-size:max(12px,.95vw); line-height:1.7; opacity:.85">中药药理学 · 中药药剂学 · 中药药物化学 · 中药分析学 · 天然药物化学 · 中药鉴定学 · 中药炮制学 · 方剂学</p>
+      </div>
+      <div>
+        <div class="kicker" data-anim style="font-size:max(9px,.7vw)">专业基础</div>
+        <p data-anim style="font-family:var(--sans-zh); font-size:max(12px,.95vw); line-height:1.7; opacity:.85">分析化学 · 解剖学 · 生物化学与分子生物学 · 物理化学 · 有机化学 · 细胞生物学 · 药用植物学 · 病原生物学与免疫学</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>中药学 · 总学分180.5 · 整体调理 辨证施治</div>
+    <div>Page 06 · 中药学课程体系</div>
+  </div>
+</section>
+
+<!-- ============ 第7页：中药学专业各学年安排 ============ -->
+<section class="slide dark">
+  <div class="chrome">
+    <div>中药学专业 · 各学年课程安排</div>
+    <div>06 · 07 / 09</div>
+  </div>
+  <div class="frame" style="padding-top:3vh">
+    <div class="kicker" data-anim>中药学专业 · 实践教学体系</div>
+    <h2 class="h-xl" data-anim style="font-size:4.8vw; margin-bottom:2vh">四学年课程安排</h2>
+
+    <div class="pipeline" data-cols="4" style="margin-top:2vh">
+      <div class="step" data-anim>
+        <div class="step-nb">第一学年</div>
+        <div class="step-title" style="font-size:1.5vw">基础入门</div>
+        <div class="step-desc">分析化学、解剖学、生物化学与分子生物学等</div>
+      </div>
+      <div class="step" data-anim>
+        <div class="step-nb">第二学年</div>
+        <div class="step-title" style="font-size:1.5vw">深化基础</div>
+        <div class="step-desc">物理化学、有机化学、细胞生物学、药用植物学、病原生物学与免疫学、中药鉴定学</div>
+      </div>
+      <div class="step" data-anim>
+        <div class="step-nb">第三学年</div>
+        <div class="step-title" style="font-size:1.5vw">专业核心</div>
+        <div class="step-desc">医学机能实验学、中药化学、临床中药学、中药药剂学、中药分析、中药炮制学、方剂学</div>
+      </div>
+      <div class="step" data-anim>
+        <div class="step-nb">第四学年</div>
+        <div class="step-title" style="font-size:1.5vw">综合实践</div>
+        <div class="step-desc">中药药理学、综合实训、毕业实习、毕业论文</div>
+      </div>
+    </div>
+
+    <div class="callout" data-anim style="margin-top:3vh">
+      <span class="q-big" style="font-size:max(13px,1.3vw)">就业方向：医院中药房/中药制剂/中药学服务 · 药品经营企业药材采购销售质量管理及种植加工炮制鉴定 · 企业中药制剂和检验</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div>中药学 · 四学年 · 校内实训 + 校外实习</div>
+    <div>Page 07 · 中药学课程安排</div>
+  </div>
+</section>
+
+<!-- ============ 第8页：学生行为规范（精简合并版） ============ -->
+<section class="slide light">
+  <div class="chrome">
+    <div>学生规范 · 日常行为准则</div>
+    <div>07 · 08 / 09</div>
+  </div>
+  <div class="frame" style="padding-top:4vh">
+    <div class="kicker" data-anim>学生行为规范</div>
+    <h2 class="h-xl" data-anim style="font-size:5vw; margin-bottom:3vh">日常行为准则</h2>
+
+    <div class="grid-3" style="margin-top:1vh">
+      <div class="stat-card" data-anim>
+        <div class="stat-label"><i data-lucide="book-open" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>课堂纪律</div>
+        <div class="stat-nb" style="font-size:3.2vw">守时<span style="font-size:.5em;opacity:.6">·出勤</span></div>
+        <div class="stat-note">不迟到、不早退、不旷课，保证全员出勤，展现良好学风。</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label"><i data-lucide="home" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>宿舍内务</div>
+        <div class="stat-nb" style="font-size:3.2vw">整洁<span style="font-size:.5em;opacity:.6">·规范</span></div>
+        <div class="stat-note">做好宿舍全面卫生整理，保持内务整洁规范。</div>
+      </div>
+      <div class="stat-card" data-anim>
+        <div class="stat-label"><i data-lucide="shirt" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>仪容仪表</div>
+        <div class="stat-nb" style="font-size:3.2vw">得体<span style="font-size:.5em;opacity:.6">·大方</span></div>
+        <div class="stat-note">穿着整洁大方，展现医学生良好精神风貌。</div>
+      </div>
+    </div>
+
+    <div style="margin-top:4vh">
+      <div class="kicker" data-anim>网络言行规范</div>
+      <div class="grid-4" style="margin-top:1vh">
+        <div class="stat-card" data-anim>
+          <div class="stat-label"><i data-lucide="message-circle-x" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不发</div>
+          <div class="stat-nb" style="font-size:3vw">不发</div>
+          <div class="stat-note">不在任何网络平台发布有损学校形象的视频、言论</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label"><i data-lucide="share-2" class="ico-md" style="margin-right:4px;vertical-align:middle;transform:rotate(180deg)"></i>不传</div>
+          <div class="stat-nb" style="font-size:3vw">不传</div>
+          <div class="stat-note">不传播不利于学校的舆情信息</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label"><i data-lucide="camera-off" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不拍</div>
+          <div class="stat-nb" style="font-size:3vw">不拍</div>
+          <div class="stat-note">遵守校园拍摄管理规定</div>
+        </div>
+        <div class="stat-card" data-anim>
+          <div class="stat-label"><i data-lucide="ban" class="ico-md" style="margin-right:4px;vertical-align:middle"></i>不碰</div>
+          <div class="stat-nb" style="font-size:3vw">不碰</div>
+          <div class="stat-note">不触碰任何有损学校声誉的言行红线</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" data-anim style="margin-top:2vh">
+      <span class="q-big">全体同学自觉维护学校形象，做肇医最好的代言人。</span>
+    </div>
+  </div>
+  <div class="foot">
+    <div>课堂守时 · 宿舍整洁 · 着装得体 · 网络自律</div>
+    <div>Page 08 · 学生行为规范</div>
+  </div>
+</section>
+
+<!-- ============ 第9页：结尾 ============ -->
+<section class="slide light">
+  <div class="chrome">
+    <div>肇庆医学院 · 药学院</div>
+    <div>08 · 09 / 09</div>
   </div>
   <div class="frame" style="display:grid; gap:5vh; align-content:center; min-height:80vh; text-align:center">
     <div class="kicker" data-anim>致全体同学</div>
-    <h1 class="h-xl" style="font-size:6.5vw" data-anim>预祝评审顺利通过</h1>
+    <h1 class="h-xl" style="font-size:6vw" data-anim>大医精诚，知行合一</h1>
     <p class="lead" style="max-width:60vw; margin-inline:auto" data-anim>
-      我们共同努力，展现肇医学子最好的精神风貌。
+      了解学校、了解专业，展现肇医学子最好的精神风貌。
     </p>
     <div class="meta-row" data-anim style="justify-content:center; margin-top:4vh">
       <span>肇庆医学院</span><span>·</span><span>肇庆医学院药学院</span>
@@ -805,23 +846,17 @@
     </p>
   </div>
   <div class="foot">
-    <div>肇庆医学院药学院 · 学士学位授予评审</div>
-    <div>— 感谢配合 —</div>
+    <div>肇庆医学院药学院 · 药学/中药学专业介绍</div>
+    <div>— 感谢查阅 —</div>
   </div>
 </section>
-
-
 
 </div>
 
 <div id="nav"></div>
 
 <script>
-/* =============== WebGL 双背景 ===============
-   深色页：Holographic Dispersion（全息色散 · 钛金暗流）—— 彩虹微扰、鼠标径向涟漪
-   浅色页：Spiral Vortex（旋转涡流 · 银色珍珠）—— domain-warp 流动、无中心
-   修改风格请参考 references/webgl-backgrounds.md
-*/
+/* =============== WebGL 双背景 =============== */
 const VS = `attribute vec2 position;void main(){gl_Position=vec4(position,0.0,1.0);}`;
 
 const FS_DARK = `precision highp float;
@@ -945,13 +980,12 @@ function stopGL(){
 startGL();
 addEventListener('ppt-low-power-change', e=>{e.detail.on ? stopGL() : startGL();});
 
-// =============== 导航（翻页 / 圆点 / 键盘 / 滚轮 / 触屏） ===============
+// =============== 导航 ===============
 const deck=document.getElementById('deck');
 const slides=deck.querySelectorAll('.slide');
 const nav=document.getElementById('nav');
 let idx=0,total=slides.length,lock=false;
 
-// 关键：矫正 deck 宽度为 total * 100vw，否则翻页会错位
 deck.style.width=(total*100)+'vw';
 
 slides.forEach((s,i)=>{
@@ -967,11 +1001,9 @@ function go(n){
   window.__currentSlideIndex = idx;
   deck.style.transform=`translateX(${-idx*100}vw)`;
   nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
-  /* 主题切换：优先读 data-theme，其次从 class（light/dark）推断 */
   const el=slides[idx];
   const th=el.dataset.theme || (el.classList.contains('light')?'light':(el.classList.contains('dark')?'dark':'dark'));
   document.body.classList.toggle('light-bg',th==='light');
-  /* 动效：翻页过渡中段触发当前页的入场动画（由 motion-boot 注册） */
   if(window.__playSlide) setTimeout(()=>window.__playSlide(idx), 450);
   lock=true;setTimeout(()=>lock=false,700);
 }
@@ -1077,9 +1109,7 @@ function toggleBGM(){
   bgmPlaying = !bgmPlaying;
 }
 
-// 页面加载后立即尝试全屏 + 自动播放
 (function initAuto(){
-  // 1. 页面加载后立即尝试全屏（浏览器可能拦截），之后任何交互持续尝试直到成功
   function goFullscreen(){
     var el = document.documentElement;
     var p;
@@ -1094,7 +1124,6 @@ function toggleBGM(){
   document.addEventListener('touchstart', goFullscreen);
   document.addEventListener('keydown', goFullscreen);
 
-  // 2. 自动播放 BGM（立即尝试，被拦截则走点击兜底）
   if(bgm){
     bgm.volume = 0.25;
     bgm.play().then(function(){
@@ -1103,7 +1132,6 @@ function toggleBGM(){
       bgmBtn.style.color = 'rgba(255,255,255,.85)';
     }).catch(function(){});
   }
-  // 兜底：首次交互时再试
   document.addEventListener('click', function tryBGM(){
     if(!bgmPlaying && bgm){
       bgm.play().then(function(){
@@ -1115,11 +1143,9 @@ function toggleBGM(){
   }, {once: true});
 })();
 
-// =============== 自动轮播（按页面内容量动态调整5~9秒） ===============
+// =============== 自动轮播 ===============
 (function(){
-  // 每页轮播时间(ms)：页0-封面6s, 页1-倒计时7s, 页2-线下规范7s, 页3-网络拍摄7s,
-  // 页4-专家问询9s, 页5-座谈要点9s, 页6-核心提醒5s, 页7-结尾5s
-  var pageDelays = [6000, 7000, 7000, 7000, 9000, 9000, 5000, 5000];
+  var pageDelays = [6000, 8000, 8000, 9000, 8000, 9000, 8000, 7000, 5000];
   var autoplayTimer = null;
 
   function scheduleNext(){
@@ -1137,7 +1163,6 @@ function toggleBGM(){
   scheduleNext();
 })();
 
-// =============== 翻译提示 ===============
 document.addEventListener('DOMContentLoaded', function(){
   var hint = document.createElement('div');
   hint.id = 'translate-hint';
@@ -1157,12 +1182,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
-<!-- ============ Motion One 动效引擎（本地优先,CDN 兜底） ============
-     加载策略:先 ./assets/motion.min.js(本地,离线可用),失败 fallback 到 jsDelivr CDN
-     加载完成后挂 window.__playSlide / window.__pipeAdvance,
-     导航脚本会在翻页中段调用 __playSlide(idx),键盘/滚轮/触屏会在翻页前调用 __pipeAdvance()
-     双双失败时会兜底把所有 [data-anim] 设为可见,不让动效破坏阅读
--->
+<!-- ============ Motion One 动效引擎 ============ -->
 <script type="module">
 let motion;
 try {
@@ -1250,7 +1270,6 @@ if(motion){
       return;
     }
 
-    // default: cascade
     animate(all, {opacity:[0,1], y:[16,0]}, {duration:.75, delay:stagger(.1, {start:.15}), easing:EASE});
   }
 
@@ -1272,18 +1291,15 @@ if(motion){
   window.__playSlide = playSlide;
   window.__pipeAdvance = pipeAdvance;
 
-  // 首屏:go(0) 已跑过(同步),没来得及触发动效 → 这里补一下
   playSlide(0);
 }
 </script>
 
 <!-- ============ 背景音乐 ============ -->
 <audio id="bgm" loop preload="auto" style="display:none">
-  <!-- BGM: "Uplifting Corporate (Over The Horizon)" by MarkJuly, Pixabay License (free use, no attribution required) -->
   <source src="bgm.mp3" type="audio/mpeg">
 </audio>
 <button id="bgm-toggle" style="position:fixed; top:2vh; right:3vw; z-index:40; background:rgba(0,0,0,.25); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.7); padding:6px 14px; border-radius:20px; cursor:pointer; font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; transition:all .3s" onclick="toggleBGM()" title="背景音乐开关">♪ 音乐关</button>
-
 
 </body>
 </html>
